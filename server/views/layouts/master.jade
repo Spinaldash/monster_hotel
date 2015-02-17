@@ -7,9 +7,16 @@ head
     link(href='/vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet')
     link(href='/style.css', rel='stylesheet')
     link(href='/vendor/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/style.css')
+    link(rel='shortcut icon', href='/monsterHotel3.ico', type='image/x-icon')
+
+
+      
   body
+    include ../partials/nav.jade
     h1 Welcome to Monster Hotel!
     block content
-    //- script(src='js/bootstrap.min.js')
+    
+    script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')
     script(src='/vendor/jquery/dist/jquery.js')
     script(src='/vendor/lodash/lodash.js')
