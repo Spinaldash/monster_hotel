@@ -1,12 +1,15 @@
-doctype html
-html(lang='en')
-  head
+doctype html(lang='en')
+head
     meta(charset='utf-8')
-    title Hapi Prototype
-    link(rel='stylesheet', href='/style.css')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')    
+    title Monster Hotel
+    link(href='/vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    link(href='/style.css', rel='stylesheet')
+    link(href='/vendor/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
   body
-    h1 Hapi Prototype
-    include ../partials/nav
+    h1 Welcome to Monster Hotel!
     block content
+    //- script(src='js/bootstrap.min.js')
     script(src='/vendor/jquery/dist/jquery.js')
     script(src='/vendor/lodash/lodash.js')
