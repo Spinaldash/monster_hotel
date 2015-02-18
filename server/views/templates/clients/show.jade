@@ -1,0 +1,20 @@
+extends ../../layouts/master
+block content
+  h3 Client Spotlight
+  
+  #controls
+    form(method='post', action='/clients/#{client._id}/delete')
+      button.btn.btn-danger(type='submit') Delete Client
+    a.btn.btn-info(href='/clients/#{client._id}/edit') Edit Client
+    
+  #clients
+    .container-fluid
+      .row
+        .col-xs-4.client
+          .image(style='background-repeat: no-repeat; background-size: contain; height: 300px; background-image:url(' + client.image + ')')
+          .info
+            .name: a(href='/clients/#{client._id}')= client.name
+            .age= client.age
+            .image= client.photo
+            .description= client.description
+  

@@ -1,16 +1,16 @@
 extends ../../layouts/master
 block content
   h3 Clients Index
-  a(href='/contacts/new') Add Clients
+  a(href='/clients/new') Add Clients
   
   #contacts
     .container-fluid
-      //- .row
-      //-   each monster in monsters  
-      //-     .col-xs-4.monster
-      //-       .image(style='background-repeat: no-repeat; background-size: contain; height: 300px; background-image:url(' + monster.image + ')')
-      //-       .info
-      //-         .name: a(href='/monsters/#{monster._id}')= monster.name
-      //-         li= monster.age
-      //-         li= monster.photo
-      //-         .description monster.description
+      .row
+        each client in clients
+          #cardBorder.col-xs-4.client
+            .image(style='background-repeat: no-repeat; background-size: cover; height: 300px; background-image:url(' + client.image + ')')
+            .info
+              .name: a(href='/clients/#{client._id}')= client.name
+              .age= client.age
+              label Looking For:
+              .lookingFor= client.species

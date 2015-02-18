@@ -1,0 +1,44 @@
+extends ../../layouts/master
+block content
+  h3 Add New Client
+  .row
+    .col-xs-12
+      form(method='post', action='/clients')
+        .form-group
+          label(for='name') Name
+          input#name.form-control(placeholder='Client Name', maxlength=24, name="name")
+        .form-group
+          label(for='age') Age
+          input#age.form-control(type='number', name='age')      
+        .form-group
+          label(for='image') Image Url
+          input#image.form-control(type='url', name="image", placeholder='http://')    
+        .form-group
+          label(for='gender') Gender
+          label.radio-inline(for='male') Male
+          input(type='radio', name="gender", id="inlineRadio1", value="male")
+          label.radio-inline(for='female') Female
+          input(type='radio', name="gender", id="inlineRadio2", value="female") 
+          label.radio-inline(for='other') Other
+          input(type='radio', name="gender", id="inlineRadio3", value="other")
+        .form-group
+          label(for='species') Looking For
+          select#species.form-control(name="species")
+            option Select Client's Looking For Type
+            option Demon
+            option Dragon
+            option Faerie
+            option Feral
+            option Slime
+        .form-group
+          label(for='email') Email
+          input#name.form-control(placeholder='Client Email', maxlength=40, name="email")
+        .form-group
+          label(for='phone') Phone
+          input#name.form-control(placeholder='Client Phone', maxlength=10, name="phone")    
+        .form-group
+          label(for='address') Address
+          textarea#description.form-control(rows='3', placeholder='Enter Client address here', name='address')
+        .form-group
+          button.btn.btn-default(type='submit') Submit Client to Database
+    .col-xs-8

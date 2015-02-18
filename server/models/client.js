@@ -11,7 +11,7 @@ var clientSchema = mongoose.Schema({
     email: String,
     address: String,
     lookingFor: String,
-    isAdopted: {type: Boolean, default: false}
+    hasAdopted: {type: Boolean, default: false}
 });
 
-module.exports = mongoose.model('Monster', monsterSchema);
+module.exports = mongoose.model('Client', clientSchema);
