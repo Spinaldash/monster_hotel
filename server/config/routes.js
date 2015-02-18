@@ -7,6 +7,12 @@ module.exports = [
   {method: 'get', path: '/contact', config: require('../routes/general/contact')},
   {method: 'get', path: '/monsters', config: require('../routes/monsters/index')},
   {method: 'get', path: '/monsters/new', config: require('../routes/monsters/new')},
-  {method: 'post', path: '/monsters', config: require('../routes/monsters/create')}
+  {method: 'post', path: '/monsters', config: require('../routes/monsters/create')},
+  {method: 'get', path: '/monsters/{monsterId}', config: require('../routes/monsters/show')},
+  {method: 'post', path: '/monsters/{monsterId}/delete', config: require('../routes/monsters/destroy')},
+  {method: 'get', path: '/monsters/{monsterId}/edit', config: require('../routes/monsters/edit')},
+
+  {method: 'get', path: '/clients', config: require('../routes/clients/index')}
+
 
 ];

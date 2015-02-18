@@ -1,0 +1,20 @@
+extends ../../layouts/master
+block content
+  h3 Monster Spotlight
+  
+  #controls
+    form(method='post', action='/monsters/#{monster._id}/delete')
+      button.btn.btn-danger(type='submit') Delete Monster
+    a.btn.btn-info(href='/monsters/#{monster._id}/edit') Edit Animal
+    
+  #monsters
+    .container-fluid
+      .row
+        .col-xs-4.monster
+          .image(style='background-repeat: no-repeat; background-size: contain; height: 300px; background-image:url(' + monster.image + ')')
+          .info
+            .name: a(href='/monsters/#{monster._id}')= monster.name
+            .age= monster.age
+            .image= monster.photo
+            .description= monster.description
+  

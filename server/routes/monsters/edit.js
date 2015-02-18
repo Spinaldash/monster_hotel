@@ -6,8 +6,8 @@ var Monster = require('../../models/monster');
 
 module.exports = {
   handler: function(request, reply) {
-    Monster.find({isAdopted: false}, function(err, monsters) {
-      reply.view('templates/monsters/index', {path: '/monsters', setActive:setActive, monsters:monsters});
+    Monster.findOne({_id:request.params.monsterId}, function(err, monster) {
+      reply.view('templates/monsters/edit', {path: '/monsters', setActive:setActive, monster:monster});
     });
   }
 };
