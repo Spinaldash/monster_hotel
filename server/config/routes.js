@@ -11,11 +11,15 @@ module.exports = [
   {method: 'get', path: '/monsters/{monsterId}', config: require('../routes/monsters/show')},
   {method: 'post', path: '/monsters/{monsterId}/delete', config: require('../routes/monsters/destroy')},
   {method: 'get', path: '/monsters/{monsterId}/edit', config: require('../routes/monsters/edit')},
+  {method: 'post', path: '/monsters/{monsterId}', config: require('../routes/monsters/update')},
+  {method: 'post', path: '/monsters/{monsterId}/adopt', config: require('../routes/monsters/adopt')},
+
 
   {method: 'get', path: '/clients', config: require('../routes/clients/index')},
   {method: 'get', path: '/clients/new', config: require('../routes/clients/new')},
   {method: 'post', path: '/clients', config: require('../routes/clients/create')},
   {method: 'get', path: '/clients/{clientId}', config: require('../routes/clients/show')},
   {method: 'post', path: '/clients/{clientId}/delete', config: require('../routes/clients/destroy')},
-  {method: 'get', path: '/clients/{clientId}/edit', config: require('../routes/clients/edit')}
+  {method: 'get', path: '/clients/{clientId}/edit', config: require('../routes/clients/edit')},
+  {method: 'post', path: '/clients/{clientId}', config: require('../routes/clients/update')}
 ];

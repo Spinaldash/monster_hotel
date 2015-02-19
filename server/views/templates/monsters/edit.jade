@@ -1,33 +1,29 @@
 extends ../../layouts/master
 block content
-  h3=monster.name 
+  h3='Editing: ' + monster.name 
    
   .row
     .col-xs-12
-      form(method='post', action='/monsters')
+      form(method='post', action='/monsters/#{monster._id}')
         .form-group
           label(for='name') Name
           input#name.form-control(placeholder='Monster Name', maxlength=24, name="name", value=monster.name)
         .form-group
-          label(for='image') Image Url
-          input#image.form-control(type='url', name="image", placeholder='http://', value=monster.image)    
+          label(for='image') Image
+          input#image.form-control(type='text', name="image", placeholder='http://', value=monster.image)    
         .form-group
           label(for='gender') Gender
           label.radio-inline(for='male') Male
-          input(type='radio', name="gender", id="inlineRadio1", value="male")
+          input(type='radio', name="gender", id="inlineRadio1", value="male", checked=monster.gender === 'male')
           label.radio-inline(for='female') Female
-          input(type='radio', name="gender", id="inlineRadio2", value="female") 
+          input(type='radio', name="gender", id="inlineRadio2", value="female", checked=monster.gender === 'female' ) 
           label.radio-inline(for='other') Other
-          input(type='radio', name="gender", id="inlineRadio3", value="other")
+          input(type='radio', name="gender", id="inlineRadio3", value="other", checked=monster.gender === 'other')
         .form-group
           label(for='species') Species
-          select#species.form-control(name="species", value=monster.species)
-            option Select Monster Type
-            option(value='Demon') Demon
-            option(value='Dragon') Dragon
-            option(value='Faerie') Faerie
-            option(value='Feral') Feral
-            option(value='Slime') Slime
+          select#species.form-control(name="species")
+            each s in species
+              option(selected=monster.species === s)= s
         .form-group
           label(for='age') Age
           input#age.form-control(type='number', name='age', value=monster.age)

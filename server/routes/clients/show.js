@@ -4,9 +4,10 @@ var setActive = require('../../views/helpers/active');
 var Client = require('../../models/client');
 
 
+
 module.exports = {
   handler: function(request, reply) {
-    Client.findOne({_id:request.params.clientId}, function(err, client) {
+    Client.findOne({_id:request.params.clientId}).populate('pets').exec(function(err, client) {
       reply.view('templates/clients/show', {path: '/clients', setActive:setActive, client:client});
     });
   }

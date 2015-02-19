@@ -1,7 +1,34 @@
 extends ../../layouts/master
 block content
-  h3 Monsters Index
-  a(href='/monsters/new') Add Monster!
+  .text-center
+    h3 Monsters Index
+  
+  .lead
+    a.btn.btn-success(href='/monsters/new') Add Monster!
+  
+  #filter
+    form.form-inline(method='get', action='/monsters')
+      .form-group
+        button.btn.btn-primary(type='submit') Filter   
+      .form-group
+        input.styled-input(type='number', name='min', placeholder='Min. Age')
+      .form-group
+        input.styled-input(type='number', name='max', placeholder='Max. Age')
+      .form-group
+        select.styled-select(name='gender')
+          option(value='') Pick Gender
+          option(value='male') male
+          option(value='female') female
+          option(value='other') other
+      .form-group
+        select.styled-select(name='species')
+          option(value='') Pick Species
+          option Demon
+          option Dragon
+          option Faerie
+          option Feral
+          option Slime
+       
   
   #monsters
     .container-fluid

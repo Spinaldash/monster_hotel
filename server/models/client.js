@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 
 var clientSchema = mongoose.Schema({
-    name: String,
+    name: {type: String, required: true}, //required: true means it must have a name to be saved into the database
     image: String,
     age: Number,
     gender: String,
@@ -11,7 +11,7 @@ var clientSchema = mongoose.Schema({
     email: String,
     address: String,
     lookingFor: String,
-    hasAdopted: {type: Boolean, default: false}
+    pets: [{type: mongoose.Schema.ObjectId, ref:'Monster'}] // Adds a Pets Properity, which is an array of ObjectIds. ref: means the ID's must be monsters.
 });
 
 module.exports = mongoose.model('Client', clientSchema);

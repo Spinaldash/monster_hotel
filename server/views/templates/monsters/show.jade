@@ -7,14 +7,29 @@ block content
       button.btn.btn-danger(type='submit') Delete Monster
     a.btn.btn-info(href='/monsters/#{monster._id}/edit') Edit Monster
     
+    if(!monster.isAdopted)
+      h3 Adopt Monster
+      form(method='post', action='/monsters/#{monster._id}/adopt')
+        .form-group
+          select(name='clientId')
+          each client in clients
+            option(value=client._id)= client.name 
+        .form-group
+            button(type='submit') Adopt!
+      
   #monsters
     .container-fluid
       .row
         .col-xs-4.monster
+          .page-header= monster.name
           .image(style='background-repeat: no-repeat; background-size: contain; height: 300px; background-image:url(' + monster.image + ')')
           .info
             .name: a(href='/monsters/#{monster._id}')= monster.name
             .age= monster.age
-            .image= monster.photo
-            .description= monster.description
+            .species= monster.species
+            .gender= monster.gender
+            .color= monster.color
+        .col-xs-7.info
+          .page-header Info
+          .description= monster.description
   
